@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import { usePageHeadingsTree } from "use-page-headings-tree";
+import React from "react";
+// import { usePageHeadingsTree } from "use-page-headings-tree";
 import { PrismCode } from "./YouVisitIWC/prismcode";
 import { YouVisitIWC } from "@ux_bob/yv-iwc";
 import { gql, useQuery } from "@apollo/client";
@@ -53,14 +53,14 @@ const InstructionsPage = ({ institutionID }) => {
   if (loading) return <p>Loading Institution...</p>;
   if (error) return `Error! ${error}`;
 
-  const renderNodeList = (node) => (
-    <li key={node.id}>
-      <a href={"#" + node.id}>{node.text}</a>
-      {node.childNodes.length > 0 ? (
-        <ul>{node.childNodes.map(renderNodeList)}</ul>
-      ) : null}
-    </li>
-  );
+  // const renderNodeList = (node) => (
+  //   <li key={node.id}>
+  //     <a href={"#" + node.id}>{node.text}</a>
+  //     {node.childNodes.length > 0 ? (
+  //       <ul>{node.childNodes.map(renderNodeList)}</ul>
+  //     ) : null}
+  //   </li>
+  // );
 
   const datum = data.institutions;
   // const name = datum.name

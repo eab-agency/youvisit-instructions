@@ -3,7 +3,7 @@ import "./App.css";
 // import { gql, useQuery } from "@apollo/client";
 import { useLocation } from "react-router-dom";
 import queryString from "query-string";
-import Instruction from "./components/instructions";
+import Instruction from "./components/Instructions";
 
 // const InstructionID = ({ institutionID }) => {
 //   const { loading, error, data, refetch } = useQuery(query, {
