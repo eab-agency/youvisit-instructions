@@ -1,25 +1,64 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+// import { gql, useQuery } from "@apollo/client";
+import { useLocation } from "react-router-dom";
+import queryString from "query-string";
+import Instruction from "./components/instructions";
 
-function App() {
+// const InstructionID = ({ institutionID }) => {
+//   const { loading, error, data, refetch } = useQuery(query, {
+//     variables: { institutionID },
+//   });
+//   if (loading) return <p>Loading Institution...</p>;
+//   if (error) return `Error! ${error}`;
+
+//   return (
+//     <div>
+//       <code>{JSON.stringify(data, null, 4)}</code>
+//       Your ID is: {institutionID}
+//       <button onClick={() => refetch()}>Refetch!</button>
+//     </div>
+//   );
+// };
+
+const App = () => {
+  const { search } = useLocation();
+  const { id } = queryString.parse(search);
+  console.log("institutionID", id);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <section className="App">
+        <Instruction institutionID={id} />
+      </section>
+    </>
   );
-}
+};
 
 export default App;
+
+// export const query = gql`
+//   query Institution($institutionID: String!) {
+//     institutions(instID: $institutionID) {
+//       locations {
+//         loc_id
+//         name
+//         experience_type
+//         cover_photo {
+//           thumb
+//           full
+//         }
+//         stops {
+//           stopid
+//           title
+//           panoramas {
+//             smallurl
+//             thumburl
+//           }
+//         }
+//       }
+//       name
+//       inst_id
+//     }
+//   }
+// `;

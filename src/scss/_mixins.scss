@@ -1,0 +1,84 @@
+// ================
+// Custom Royall Mixins
+// ================
+
+@mixin fontFace($_p-fileName, $_f-fontFamily: $_fileName, $_f-fontWeight: normal, $_f-fontStyle: normal) {
+  @font-face {
+    font-family: '#{$_f-fontFamily}';
+    font-weight: $_f-fontWeight;
+    font-style: $_f-fontStyle;
+    src: font-url('./#{$_p-fileName}.woff') format('woff');
+  }
+}
+
+// ================
+// Mixin: Fluidly scales a property from a minimum to a maximum size
+// More info: https://wiki.eab.com/display/RWD/fluidRem%28%29+mixin
+
+@mixin fluidRem($_x-prop, $_d-minRem, $_d-maxRem, $_mq-min: $mq-300, $_mq-max: $mq-1200) {
+  $_d-mid: "";
+
+  @for $_x-i from 1 through length($_d-maxRem) {
+    $_d-iMin: nth($_d-minRem, $_x-i);
+    $_d-iMax: nth($_d-maxRem, $_x-i);
+
+    @if $_d-iMin == 0 {
+      $_d-iMin: 0rem;
+    }
+
+    @if $_d-iMax == 0 {
+      $_d-iMax: 0rem;
+    }
+    $_d-iMid: calc(#{$_d-iMin} + #{($_d-iMax - $_d-iMin) / 1rem} * ((100vw - #{$_mq-min}) / #{($_mq-max - $_mq-min) / 1rem}));
+
+    @if ($_x-i > 1) {
+      $_d-mid: $_d-mid + " ";
+    }
+    $_d-mid: $_d-mid + $_d-iMid;
+  }
+  #{$_x-prop}: #{$_d-minRem};
+
+  @media (min-width: #{$_mq-min}) {
+    #{$_x-prop}: #{$_d-mid};
+  }
+
+  @media (min-width: #{$_mq-max}) {
+    #{$_x-prop}: #{$_d-maxRem};
+  }
+}
+
+
+///////////////
+//Animations
+//////////////
+@mixin animation($animate...) {
+  $max: length($animate);
+  $animations: '';
+
+  @for $i from 1 through $max {
+      $animations: #{$animations + nth($animate, $i)};
+
+      @if $i < $max {
+          $animations: #{$animations + ", "};
+      }
+  }
+  -webkit-animation: $animations;
+  -moz-animation:    $animations;
+  -o-animation:      $animations;
+  animation:         $animations;
+}
+
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+      @content;
+  }
+  @-moz-keyframes #{$animationName} {
+      @content;
+  }
+  @-o-keyframes #{$animationName} {
+      @content;
+  }
+  @keyframes #{$animationName} {
+      @content;
+  }
+}

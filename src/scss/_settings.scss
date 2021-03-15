@@ -1,0 +1,101 @@
+// ================
+// Settings
+// ================
+
+$font-path: '../fonts';
+$font-name: 'icomoon';
+
+$src:
+  url("#{$font-path}/#{$font-name}.woff") format('woff')
+;
+
+@font-face {
+  font-family: $font-name;
+  src:  $src;
+  font-weight: normal;
+  font-style: normal;
+}
+
+// ================
+// Variables
+
+// Font Stacks
+$f-serif: 'Hepta Slab', Georgia, Times, serif;
+$f-sans: 'Montserrat', Arial, Helvetica, sans-serif;
+$f-icons: "icomoon";
+
+// // icon list
+// $i-square: "\e900";
+// $i-arrow: "\e901";
+// $i-checkmark: "\e902";
+// $i-cross: "\e903";
+
+// Colors
+$c-primary-blue-lt: #0072ce;
+$c-primary-blue-md: #004b87;
+$c-primary-blue-dk: #00355f;
+$c-primary-alt-blue: #00b1b0;
+$c-primary-orange: #ed8b00;
+
+$c-secondary-blue-1: #002746;
+$c-secondary-blue-2: #00a4e4;
+$c-secondary-blue-3: #74c4ee;
+$c-secondary-blue-4: #7fcfcf;
+$c-secondary-blue-5: #a1dcdc;
+$c-secondary-blue-6: #c8e9ff;
+$c-secondary-blue-7: #e0f1f1;
+$c-secondary-violet-lt: #aeabd5;
+$c-secondary-violet-md: #716fb3;
+$c-secondary-violet-dk: #5c598a;
+$c-secondary-yellow-lt: #feef99;
+$c-secondary-yellow-md: #ffe510;
+$c-secondary-yellow-dk: #f7ca0f;
+$c-secondary-orange: #f7c687;
+$c-secondary-orange-2: #D5801D;
+$c-gray: #cccccc;
+$c-black: #343a40;
+$c-inputbg: #F8FAFA;
+
+$c-error: #b10035;
+$c-valid: #3fff64;
+
+// Contrasted colors:
+$c-bright-blue: #09a3e4;
+$c-bluish-gray: #333F48;
+
+// Breakpoints
+$mq-2000: 125rem;
+$mq-1900: 118.75rem;
+$mq-1800: 112.5rem;
+$mq-1700: 106.25rem;
+$mq-1600: 100rem;
+$mq-1500: 93.75rem;
+$mq-1400: 87.5rem;
+$mq-1300: 81.25rem;
+$mq-1200: 75rem;
+$mq-1100: 68.75rem;
+$mq-1000: 62.5rem;
+$mq-900: 56.25rem;
+$mq-800: 50rem;
+$mq-700: 43.75rem;
+$mq-600: 37.5rem;
+$mq-500: 31.25rem;
+$mq-400: 25rem;
+$mq-300: 18.75rem;
+
+// Common Dimensions
+// $d-typeSpacing: 1rem;
+
+// icons
+$i-globe: "\e9c9";
+$i-arrow: "\ea3c";
+$i-embed: "\ea80";
+$i-codepen: "\eae8";
+
+$i-squarecheckmark: "\e900";
+$i-wired-arrow: "\e901";
+$i-checkmark: "\e902";
+$i-document: "\e903";
+
+$i-desktop: "\e904";
+$i-stats: "\e905";
