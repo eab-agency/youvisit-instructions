@@ -2,26 +2,26 @@
 // Settings
 // ================
 
-$font-path: '../fonts';
-$font-name: 'icomoon';
+$font-path: "../fonts";
+$font-name: "icomoon";
 
-$src:
-  url("#{$font-path}/#{$font-name}.woff") format('woff')
-;
+$src: url("#{$font-path}/#{$font-name}.woff") format("woff");
 
 @font-face {
   font-family: $font-name;
-  src:  $src;
+  src: $src;
   font-weight: normal;
   font-style: normal;
 }
+
+@import url("https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@600&family=Montserrat:wght@300;500;600;700;800&display=swap");
 
 // ================
 // Variables
 
 // Font Stacks
-$f-serif: 'Hepta Slab', Georgia, Times, serif;
-$f-sans: 'Montserrat', Arial, Helvetica, sans-serif;
+$f-serif: "Hepta Slab", Georgia, Times, serif;
+$f-sans: "Montserrat", Arial, Helvetica, sans-serif;
 $f-icons: "icomoon";
 
 // // icon list
@@ -51,17 +51,17 @@ $c-secondary-yellow-lt: #feef99;
 $c-secondary-yellow-md: #ffe510;
 $c-secondary-yellow-dk: #f7ca0f;
 $c-secondary-orange: #f7c687;
-$c-secondary-orange-2: #D5801D;
+$c-secondary-orange-2: #d5801d;
 $c-gray: #cccccc;
 $c-black: #343a40;
-$c-inputbg: #F8FAFA;
+$c-inputbg: #f8fafa;
 
 $c-error: #b10035;
 $c-valid: #3fff64;
 
 // Contrasted colors:
 $c-bright-blue: #09a3e4;
-$c-bluish-gray: #333F48;
+$c-bluish-gray: #333f48;
 
 // Breakpoints
 $mq-2000: 125rem;

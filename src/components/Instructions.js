@@ -6,6 +6,7 @@ import { gql, useQuery } from "@apollo/client";
 
 // import Layout from "../components/Layout"
 import LayoutInstructions from "./LayoutInstructions";
+import Section from "./Section";
 // import SelectInput from "@material-ui/core/Select/SelectInput"
 
 export const query = gql`
@@ -856,6 +857,8 @@ const InstructionsPage = ({ institutionID }) => {
           </div>
           {/* Wrapper Centered */}
         </section>
+
+        <Section title="This is the mega title" />
       </div>
     </LayoutInstructions>
   );
