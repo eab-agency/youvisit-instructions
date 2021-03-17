@@ -47,9 +47,13 @@ const InstructionsPage = ({ institutionID }) => {
   const [pageHeadingTree, setPageHeadingTree] = useState(null);
 
   useEffect(() => {
-    const headingNodes = headingsContainerRef.current.querySelectorAll("h2,h3");
-    setPageHedingNodes(headingNodes);
-  }, []);
+    if (data) {
+      const headingNodes = headingsContainerRef.current.querySelectorAll(
+        "h2,h3"
+      );
+      setPageHedingNodes(headingNodes);
+    }
+  }, [data]);
 
   usePageHeadingsTree(pageHeadingNodes, setPageHeadingTree, false);
 
