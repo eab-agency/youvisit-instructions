@@ -41,7 +41,6 @@ const InstructionsPage = ({ institutionID }) => {
 
   // useRef needs to be called before the 'if (loading)' and 'if (error)'
   const headingsContainerRef = useRef();
-  console.log("headingsContainerRef.current1", headingsContainerRef.current);
 
   const [pageHeadingNodes, setPageHedingNodes] = useState([]);
   const [pageHeadingTree, setPageHeadingTree] = useState(null);
@@ -83,7 +82,7 @@ const InstructionsPage = ({ institutionID }) => {
     filtered_locations_arr === undefined ||
     filtered_locations_arr.length === 0
   ) {
-    console.log(locations);
+    // console.log(locations);
   } else {
     filtered_locations_arr = filtered_locations_arr.split`,`.map((x) => +x);
     locations = locations.filter((el) => {
@@ -157,10 +156,6 @@ const InstructionsPage = ({ institutionID }) => {
 
   return (
     <LayoutInstructions title={title} locations={locations}>
-      {console.log(
-        "headingsContainerRef.current",
-        headingsContainerRef.current
-      )}
       <div className="intro">
         <div className="wrapper centered">
           <h1>
