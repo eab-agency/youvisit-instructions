@@ -1,5 +1,5 @@
-import React from "react";
-// import { usePageHeadingsTree } from "use-page-headings-tree";
+import React, { useRef, useState, useEffect } from "react";
+import { usePageHeadingsTree } from "use-page-headings-tree";
 import { PrismCode } from "./YouVisitIWC/prismcode";
 import { YouVisitIWC } from "@ux_bob/yv-iwc";
 import { gql, useQuery } from "@apollo/client";
@@ -36,32 +36,36 @@ export const query = gql`
 `;
 
 const InstructionsPage = ({ institutionID }) => {
-  // const headingsContainerRef = useRef();
-
-  // const [pageHeadingNodes, setPageHedingNodes] = useState([]);
-  // const [pageHeadingTree, setPageHeadingTree] = useState(null);
-
-  // useEffect(() => {
-  //   const headingNodes = headingsContainerRef.current.querySelectorAll("h2,h3");
-  //   setPageHedingNodes(headingNodes);
-  // }, []);
-
-  // usePageHeadingsTree(pageHeadingNodes, setPageHeadingTree, false);
-
   const { error, loading, data } = useQuery(query, {
     variables: { institutionID },
   });
+
+  // useRef needs to be called before the 'if (loading)' and 'if (error)'
+  const headingsContainerRef = useRef();
+  console.log("headingsContainerRef.current1", headingsContainerRef.current);
+
+  const [pageHeadingNodes, setPageHedingNodes] = useState([]);
+  const [pageHeadingTree, setPageHeadingTree] = useState(null);
+
+  useEffect(() => {
+    const headingNodes = headingsContainerRef.current.querySelectorAll("h2,h3");
+    setPageHedingNodes(headingNodes);
+  }, []);
+
+  usePageHeadingsTree(pageHeadingNodes, setPageHeadingTree, false);
+
+  // must be called after 'useRef() call'
   if (loading) return <p>Loading Institution...</p>;
   if (error) return `Error! ${error}`;
 
-  // const renderNodeList = (node) => (
-  //   <li key={node.id}>
-  //     <a href={"#" + node.id}>{node.text}</a>
-  //     {node.childNodes.length > 0 ? (
-  //       <ul>{node.childNodes.map(renderNodeList)}</ul>
-  //     ) : null}
-  //   </li>
-  // );
+  const renderNodeList = (node) => (
+    <li key={node.id}>
+      <a href={"#" + node.id}>{node.text}</a>
+      {node.childNodes.length > 0 ? (
+        <ul>{node.childNodes.map(renderNodeList)}</ul>
+      ) : null}
+    </li>
+  );
 
   const datum = data.institutions;
   // const name = datum.name
@@ -150,6 +154,10 @@ const InstructionsPage = ({ institutionID }) => {
 
   return (
     <LayoutInstructions title={title} locations={locations}>
+      {console.log(
+        "headingsContainerRef.current",
+        headingsContainerRef.current
+      )}
       <div className="intro">
         <div className="wrapper centered">
           <h1>
@@ -161,13 +169,13 @@ const InstructionsPage = ({ institutionID }) => {
           </p>
         </div>
       </div>
-      {/* <nav className="instructions_nav">
+      <nav className="instructions_nav">
         {pageHeadingTree ? (
           <ul>{pageHeadingTree.map(renderNodeList)}</ul>
         ) : null}
       </nav>
-      <div ref={headingsContainerRef}> */}
-      <div>
+      <div ref={headingsContainerRef}>
+        {/* <div> */}
         <section className="unlocking_the_power">
           <div className="wrapper centered">
             <h2 id="unlocking-the-power" className="section-title">
