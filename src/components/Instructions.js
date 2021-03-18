@@ -6,7 +6,11 @@ import { gql, useQuery } from "@apollo/client";
 
 // import Layout from "../components/Layout"
 import LayoutInstructions from "./LayoutInstructions";
-import Section from "./Section";
+import Section from "./Layout/Section";
+import Group from "./Layout/Container";
+import GroupHeader from "./Layout/GroupHeader";
+import Content from "./Layout/Content";
+import Container from "./Layout/Container";
 // import SelectInput from "@material-ui/core/Select/SelectInput"
 
 export const query = gql`
@@ -816,56 +820,92 @@ const InstructionsPage = ({ institutionID }) => {
           {/* Wrapper Centered */}
         </section>
 
-        <section className="directly_on_website">
-          <div className="wrapper centered">
-            <h2 id="additional-embed-codes" className="section-title">
-              Additional Embed Codes
-            </h2>
-            <div className="group">
-              <header>
+        <Section
+          sectionTitle="Additional Embed Codes"
+          sectionAnchor="additional-embed-codes"
+        >
+          <Container type="group">
+            <GroupHeader>
+              <p>
+                You can embed your Virtual Tour to launch directly into specific
+                scenes. Using the same installation methods outlined in this
+                document, alter the code with custom location id’s to launch
+                directly into the destination relevant to the page it lives on.{" "}
+              </p>
+            </GroupHeader>
+            <Container type="group_content">
+              <Content subtitle="Example">
                 <p>
-                  You can embed your Virtual Tour to launch directly into
-                  specific scenes. Using the same installation methods outlined
-                  in this document, alter the code with custom location id’s to
-                  launch directly into the destination relevant to the page it
-                  lives on.{" "}
+                  For example, embed your tour so that it launches directly into
+                  your “Music Program” destination from your Music Program page.
                 </p>
-              </header>
-              <div className="group_content">
-                <div className="content">
-                  <h4>Example</h4>
-                  <p>
-                    For example, embed your tour so that it launches directly
-                    into your “Music Program” destination from your Music
-                    Program page.
-                  </p>
+              </Content>
+            </Container>
+            <Container type="group_content">
+              <Content subtitle="Embed Codes">
+                <p>
+                  See custom <span className="embedcodetag">Embed Codes</span>{" "}
+                  for each Destination on your virtual tour below.
+                </p>
+                <div className="additional-embed-codes">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Destination Name</th>
+                        <th>Immersive Banner</th>
+                        <th>Hyperlink</th>
+                      </tr>
+                    </thead>
+                    <tbody>{stopsCodes}</tbody>
+                  </table>
                 </div>
-                <div className="content">
-                  <h4>Embed Codes</h4>
-                  <p>
-                    See custom <span className="embedcodetag">Embed Codes</span>{" "}
-                    for each Destination on your virtual tour below.
-                  </p>
-                  <div className="additional-embed-codes">
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>Destination Name</th>
-                          <th>Immersive Banner</th>
-                          <th>Hyperlink</th>
-                        </tr>
-                      </thead>
-                      <tbody>{stopsCodes}</tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* Wrapper Centered */}
-        </section>
+              </Content>
+            </Container>
+          </Container>
+        </Section>
 
-        <Section title="This is the mega title" />
+        <Section
+          sectionTitle="Self Guided Tours and Your Website"
+          sectionAnchor="mega-title"
+        >
+          <Container type="group">
+            <GroupHeader>
+              {/*subtitle="The Subtitle" groupAnchor="the-group"*/}
+              <p>
+                Allow on campus visitors to explore trails and learn more about
+                points of interest with a GPS enabled mobile experience that can
+                be launched directly from your website. We recommend linking
+                from your “Visit Campus” page directly into your interactive map
+                for easy access to a self guided campus tour.{" "}
+              </p>
+            </GroupHeader>
+            <Container type="group_content">
+              <Content
+                subtitle="To reduce drop off, ensure you follow the link out instructions below:
+"
+              >
+                <ul>
+                  <li>Launch virtual tour</li>
+                  <li>
+                    Locate and hover over the Interactive Map at the bottom left
+                    of your tour
+                    <br />
+                    <img src="" />
+                  </li>
+                  <li>Click “Interactive Map” button to launch map</li>
+                  <li>
+                    In map view, click <span className="share-btn">share</span>{" "}
+                    at the bottom left
+                  </li>
+                  <li>
+                    Choose the <span className="anchor-btn">anchor</span> for
+                    your direct link to the interactive map
+                  </li>
+                </ul>
+              </Content>
+            </Container>
+          </Container>
+        </Section>
       </div>
     </LayoutInstructions>
   );
