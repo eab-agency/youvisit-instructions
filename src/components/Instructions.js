@@ -13,6 +13,7 @@ import Step from "./Layout/Step";
 
 import SelfGuidedToursImg from "../images/self-guided-tours.jpg";
 import InteractiveMapImg from "../images/interactive-map.jpg";
+import LanguagesImg from "../images/languages.jpg";
 // import SelectInput from "@material-ui/core/Select/SelectInput"
 
 export const query = gql`
@@ -945,7 +946,9 @@ const InstructionsPage = ({ institutionID }) => {
                       This can be found in the bottom right-hand corner of your
                       tour
                     </div>
-                    <img src="" />
+                    <figure className="image-step">
+                      <img src={LanguagesImg} />
+                    </figure>
                   </Step>
                   <Step>
                     Select the language you would like to use and be prepared to
