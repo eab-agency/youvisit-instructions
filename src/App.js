@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+// import "./App.css";
 // import { gql, useQuery } from "@apollo/client";
 import { useLocation } from "react-router-dom";
 import queryString from "query-string";
