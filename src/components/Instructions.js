@@ -11,7 +11,7 @@ import Content from "./Layout/Content";
 import Container from "./Layout/Container";
 import Step from "./Layout/Step";
 
-import SelfGuidedToursImg from "../images/self-guided-tours.jpg";
+// import SelfGuidedToursImg from "../images/self-guided-tours.jpg";
 import InteractiveMapImg from "../images/interactive-map.jpg";
 import LanguagesImg from "../images/languages.jpg";
 // import SelectInput from "@material-ui/core/Select/SelectInput"
@@ -894,7 +894,7 @@ const InstructionsPage = ({ institutionID }) => {
                     of your tour
                     <br />
                     <figure className="image-step">
-                      <img src={InteractiveMapImg} />
+                      <img src={InteractiveMapImg} alt="Interactive Map" />
                     </figure>
                   </Step>
                   <Step>Click “Interactive Map” button to launch map</Step>
@@ -947,7 +947,7 @@ const InstructionsPage = ({ institutionID }) => {
                       tour
                     </div>
                     <figure className="image-step">
-                      <img src={LanguagesImg} />
+                      <img src={LanguagesImg} alt="Languages" />
                     </figure>
                   </Step>
                   <Step>
