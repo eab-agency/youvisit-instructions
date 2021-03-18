@@ -28,9 +28,9 @@ const App = () => {
 
   return (
     <>
-      <section className="App">
+      <div className="App">
         <Instruction institutionID={id} />
-      </section>
+      </div>
     </>
   );
 };
