@@ -4,8 +4,16 @@ import { PrismCode } from "./YouVisitIWC/prismcode";
 import { YouVisitIWC } from "@ux_bob/yv-iwc";
 import { gql, useQuery } from "@apollo/client";
 
-// import Layout from "../components/Layout"
 import LayoutInstructions from "./LayoutInstructions";
+import Section from "./Layout/Section";
+import GroupHeader from "./Layout/GroupHeader";
+import Content from "./Layout/Content";
+import Container from "./Layout/Container";
+import Step from "./Layout/Step";
+
+import SelfGuidedToursImg from "../images/self-guided-tours.jpg";
+import InteractiveMapImg from "../images/interactive-map.jpg";
+import LanguagesImg from "../images/languages.jpg";
 // import SelectInput from "@material-ui/core/Select/SelectInput"
 
 export const query = gql`
@@ -815,54 +823,166 @@ const InstructionsPage = ({ institutionID }) => {
           {/* Wrapper Centered */}
         </section>
 
-        <section className="directly_on_website">
-          <div className="wrapper centered">
-            <h2 id="additional-embed-codes" className="section-title">
-              Additional Embed Codes
-            </h2>
-            <div className="group">
-              <header>
+        <Section
+          sectionTitle="Additional Embed Codes"
+          sectionAnchor="additional-embed-codes"
+        >
+          <Container type="group">
+            <GroupHeader>
+              <p>
+                You can embed your Virtual Tour to launch directly into specific
+                scenes. Using the same installation methods outlined in this
+                document, alter the code with custom location id’s to launch
+                directly into the destination relevant to the page it lives on.{" "}
+              </p>
+            </GroupHeader>
+            <Container type="group_content">
+              <Content subtitle="Example">
                 <p>
-                  You can embed your Virtual Tour to launch directly into
-                  specific scenes. Using the same installation methods outlined
-                  in this document, alter the code with custom location id’s to
-                  launch directly into the destination relevant to the page it
-                  lives on.{" "}
+                  For example, embed your tour so that it launches directly into
+                  your “Music Program” destination from your Music Program page.
                 </p>
-              </header>
-              <div className="group_content">
-                <div className="content">
-                  <h4>Example</h4>
-                  <p>
-                    For example, embed your tour so that it launches directly
-                    into your “Music Program” destination from your Music
-                    Program page.
-                  </p>
+              </Content>
+            </Container>
+            <Container type="group_content">
+              <Content subtitle="Embed Codes">
+                <p>
+                  See custom <span className="embedcodetag">Embed Codes</span>{" "}
+                  for each Destination on your virtual tour below.
+                </p>
+                <div className="additional-embed-codes">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Destination Name</th>
+                        <th>Immersive Banner</th>
+                        <th>Hyperlink</th>
+                      </tr>
+                    </thead>
+                    <tbody>{stopsCodes}</tbody>
+                  </table>
                 </div>
-                <div className="content">
-                  <h4>Embed Codes</h4>
-                  <p>
-                    See custom <span className="embedcodetag">Embed Codes</span>{" "}
-                    for each Destination on your virtual tour below.
-                  </p>
-                  <div className="additional-embed-codes">
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>Destination Name</th>
-                          <th>Immersive Banner</th>
-                          <th>Hyperlink</th>
-                        </tr>
-                      </thead>
-                      <tbody>{stopsCodes}</tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* Wrapper Centered */}
-        </section>
+              </Content>
+            </Container>
+          </Container>
+        </Section>
+
+        <Section
+          sectionTitle="Self Guided Tours and Your Website"
+          sectionAnchor="self-guided-tours"
+        >
+          <Container type="group">
+            <GroupHeader>
+              {/*subtitle="The Subtitle" groupAnchor="the-group"*/}
+              <p>
+                Allow on campus visitors to explore trails and learn more about
+                points of interest with a GPS enabled mobile experience that can
+                be launched directly from your website. We recommend linking
+                from your “Visit Campus” page directly into your interactive map
+                for easy access to a self guided campus tour.{" "}
+              </p>
+            </GroupHeader>
+            <Container type="group_content">
+              <Content
+                subtitle="To reduce drop off, ensure you follow the link out instructions below:
+"
+              >
+                <Container type="embed_steps">
+                  <Step>Launch virtual tour</Step>
+                  <Step>
+                    Locate and hover over the Interactive Map at the bottom left
+                    of your tour
+                    <br />
+                    <figure className="image-step">
+                      <img src={InteractiveMapImg} />
+                    </figure>
+                  </Step>
+                  <Step>Click “Interactive Map” button to launch map</Step>
+                  <Step>
+                    In map view, click <span className="share-btn">share</span>{" "}
+                    at the bottom left
+                  </Step>
+                  <Step>
+                    Choose the <span className="anchor-btn">anchor</span> for
+                    your direct link to the interactive map
+                  </Step>
+                  <Step>
+                    Copy link
+                    <div className="important_note">
+                      <strong>Option 1:</strong> Use this exact link which will
+                      prompt a registration form upon launch
+                    </div>
+                    <div className="important_note">
+                      <strong>Option 2:</strong> Skip registration form by using
+                      this link:
+                      https://youvis.it/EjL3jL?&wph=1&skipPrompt=1&actp=0
+                    </div>
+                  </Step>
+                </Container>
+              </Content>
+            </Container>
+          </Container>
+        </Section>
+
+        <Section
+          sectionTitle="Have Additional Languages?"
+          sectionAnchor="additional-languages"
+        >
+          <Container type="group">
+            <GroupHeader>
+              {/*subtitle="The Subtitle" groupAnchor="the-group"*/}
+              <p>
+                By adding a parameter to your existing embed code, you can embed
+                your virtual tour to launch directly into a specific language.
+              </p>
+            </GroupHeader>
+            <Container type="group_content">
+              <Content>
+                <Container type="embed_steps">
+                  <Step>
+                    Launch your virtual tour to locate the additional languages
+                    (if any) supported in your virtual tour.
+                    <div className="important_note">
+                      This can be found in the bottom right-hand corner of your
+                      tour
+                    </div>
+                    <figure className="image-step">
+                      <img src={LanguagesImg} />
+                    </figure>
+                  </Step>
+                  <Step>
+                    Select the language you would like to use and be prepared to
+                    replicate the exact case and spelling from the menu of
+                    experience to include as a parameter in your existing embed
+                    code.
+                  </Step>
+                  <Step>
+                    Add the desired language as a parameter in your respective
+                    embed code
+                    <div className="important_note">
+                      <strong>Parameter framework:</strong>{" "}
+                      data-language="Insert Language"
+                    </div>
+                    <div className="example-parameters">
+                      <h4>Example of Adding Parameter to Embed code:</h4>
+                      <p>
+                        <strong>Desired Language:</strong> Mandarin
+                        <br /> <strong>Parameter:</strong>{" "}
+                        data-language=Mandarin
+                        <br /> <strong>Adding parameter to code:</strong>{" "}
+                      </p>
+                    </div>
+                    <PrismCode
+                      code={`
+                        <a alt="Launch Experience" href="https://www.youvisit.com/#/vte/?data-platform=v&data-link-type=immersive&data-inst=${datum.inst_id}&data-image-width=100%&data-image-height=100%&data-language=Mandarin&">Launch Experience</a>`}
+                      language="html"
+                    />
+                  </Step>
+                </Container>
+              </Content>
+            </Container>
+          </Container>
+        </Section>
       </div>
     </LayoutInstructions>
   );

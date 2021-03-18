@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+// import "./App.css";
 // import { gql, useQuery } from "@apollo/client";
 import { useLocation } from "react-router-dom";
 import queryString from "query-string";
@@ -28,9 +28,9 @@ const App = () => {
 
   return (
     <>
-      <section className="App">
+      <div className="App">
         <Instruction institutionID={id} />
-      </section>
+      </div>
     </>
   );
 };
