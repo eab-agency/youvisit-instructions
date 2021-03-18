@@ -4,13 +4,15 @@ import { PrismCode } from "./YouVisitIWC/prismcode";
 import { YouVisitIWC } from "@ux_bob/yv-iwc";
 import { gql, useQuery } from "@apollo/client";
 
-// import Layout from "../components/Layout"
 import LayoutInstructions from "./LayoutInstructions";
 import Section from "./Layout/Section";
-import Group from "./Layout/Container";
 import GroupHeader from "./Layout/GroupHeader";
 import Content from "./Layout/Content";
 import Container from "./Layout/Container";
+import Step from "./Layout/Step";
+
+import SelfGuidedToursImg from "../images/self-guided-tours.jpg";
+import InteractiveMapImg from "../images/interactive-map.jpg";
 // import SelectInput from "@material-ui/core/Select/SelectInput"
 
 export const query = gql`
@@ -866,7 +868,7 @@ const InstructionsPage = ({ institutionID }) => {
 
         <Section
           sectionTitle="Self Guided Tours and Your Website"
-          sectionAnchor="mega-title"
+          sectionAnchor="self-guided-tours"
         >
           <Container type="group">
             <GroupHeader>
@@ -884,24 +886,96 @@ const InstructionsPage = ({ institutionID }) => {
                 subtitle="To reduce drop off, ensure you follow the link out instructions below:
 "
               >
-                <ul>
-                  <li>Launch virtual tour</li>
-                  <li>
+                <Container type="embed_steps">
+                  <Step>Launch virtual tour</Step>
+                  <Step>
                     Locate and hover over the Interactive Map at the bottom left
                     of your tour
                     <br />
-                    <img src="" />
-                  </li>
-                  <li>Click “Interactive Map” button to launch map</li>
-                  <li>
+                    <figure className="image-step">
+                      <img src={InteractiveMapImg} />
+                    </figure>
+                  </Step>
+                  <Step>Click “Interactive Map” button to launch map</Step>
+                  <Step>
                     In map view, click <span className="share-btn">share</span>{" "}
                     at the bottom left
-                  </li>
-                  <li>
+                  </Step>
+                  <Step>
                     Choose the <span className="anchor-btn">anchor</span> for
                     your direct link to the interactive map
-                  </li>
-                </ul>
+                  </Step>
+                  <Step>
+                    Copy link
+                    <div className="important_note">
+                      <strong>Option 1:</strong> Use this exact link which will
+                      prompt a registration form upon launch
+                    </div>
+                    <div className="important_note">
+                      <strong>Option 2:</strong> Skip registration form by using
+                      this link:
+                      https://youvis.it/EjL3jL?&wph=1&skipPrompt=1&actp=0
+                    </div>
+                  </Step>
+                </Container>
+              </Content>
+            </Container>
+          </Container>
+        </Section>
+
+        <Section
+          sectionTitle="Have Additional Languages?"
+          sectionAnchor="additional-languages"
+        >
+          <Container type="group">
+            <GroupHeader>
+              {/*subtitle="The Subtitle" groupAnchor="the-group"*/}
+              <p>
+                By adding a parameter to your existing embed code, you can embed
+                your virtual tour to launch directly into a specific language.
+              </p>
+            </GroupHeader>
+            <Container type="group_content">
+              <Content>
+                <Container type="embed_steps">
+                  <Step>
+                    Launch your virtual tour to locate the additional languages
+                    (if any) supported in your virtual tour.
+                    <div className="important_note">
+                      This can be found in the bottom right-hand corner of your
+                      tour
+                    </div>
+                    <img src="" />
+                  </Step>
+                  <Step>
+                    Select the language you would like to use and be prepared to
+                    replicate the exact case and spelling from the menu of
+                    experience to include as a parameter in your existing embed
+                    code.
+                  </Step>
+                  <Step>
+                    Add the desired language as a parameter in your respective
+                    embed code
+                    <div className="important_note">
+                      <strong>Parameter framework:</strong>{" "}
+                      data-language="Insert Language"
+                    </div>
+                    <div className="example-parameters">
+                      <h4>Example of Adding Parameter to Embed code:</h4>
+                      <p>
+                        <strong>Desired Language:</strong> Mandarin
+                        <br /> <strong>Parameter:</strong>{" "}
+                        data-language=Mandarin
+                        <br /> <strong>Adding parameter to code:</strong>{" "}
+                      </p>
+                    </div>
+                    <PrismCode
+                      code={`
+                        <a alt="Launch Experience" href="https://www.youvisit.com/#/vte/?data-platform=v&data-link-type=immersive&data-inst=${datum.inst_id}&data-image-width=100%&data-image-height=100%&data-language=Mandarin&">Launch Experience</a>`}
+                      language="html"
+                    />
+                  </Step>
+                </Container>
               </Content>
             </Container>
           </Container>

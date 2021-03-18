@@ -14,7 +14,7 @@ $src: url("#{$font-path}/#{$font-name}.woff") format("woff");
   font-style: normal;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@600&family=Montserrat:wght@300;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@600&family=Montserrat:wght@300;500;600;700;800&display=swap&family=Roboto+Condensed:wght@400");
 
 // ================
 // Variables
@@ -22,6 +22,7 @@ $src: url("#{$font-path}/#{$font-name}.woff") format("woff");
 // Font Stacks
 $f-serif: "Hepta Slab", Georgia, Times, serif;
 $f-sans: "Montserrat", Arial, Helvetica, sans-serif;
+$f-sans-condensed: "Roboto Condensed", Arial, Helvetica, sans-serif;
 $f-icons: "icomoon";
 
 // // icon list
