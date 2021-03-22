@@ -68,7 +68,7 @@ const InstructionsPage = ({ institutionID }) => {
   if (loading) return <p>Loading Institution...</p>;
   if (error) return `Error! ${error}`;
 
-  const renderNodeList = (node) => (
+  const renderNodeList = node => (
     <li key={node.id}>
       <a href={"#" + node.id}>{node.text}</a>
       {node.childNodes.length > 0 ? (
@@ -92,9 +92,9 @@ const InstructionsPage = ({ institutionID }) => {
   ) {
     // console.log(locations);
   } else {
-    filtered_locations_arr = filtered_locations_arr.split`,`.map((x) => +x);
-    locations = locations.filter((el) => {
-      return filtered_locations_arr.some((f) => {
+    filtered_locations_arr = filtered_locations_arr.split`,`.map(x => +x);
+    locations = locations.filter(el => {
+      return filtered_locations_arr.some(f => {
         return f === el.loc_id;
       });
     });
