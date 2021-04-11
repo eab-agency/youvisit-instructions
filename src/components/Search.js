@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './app/App.css';
 
 function Search(props) {
     const [search, setSearch] = useState({
@@ -13,6 +12,8 @@ function Search(props) {
         setSearch({ ...search, query: input });
         //check APP then pass state of search back up to app
         props.onChildChange && props.onChildChange(search);
+
+        console.log(search);
     };
 
     return (
@@ -20,11 +21,14 @@ function Search(props) {
             <form onSubmit={updateSearch}>
                 <div>
                     <input
+                        className="searchBar"
                         type="text"
-                        placeholder="Search"
+                        placeholder="Institution Name"
                         onChange={updateSearch}
                     />
-                    <button type={'submit'}>Search</button>
+                    <button className="button" type={'submit'}>
+                        Search
+                    </button>
                 </div>
             </form>
         </div>

@@ -1,0 +1,16 @@
+.container {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.searchTitle {
+    font-family: $f-sans-condensed;
+    color: $c-primary-blue-dk;
+}
+
+.schoolNames {
+    border-radius: 4px;
+    align-self: center;
+    width: 50%;
+    cursor: pointer;
+}
